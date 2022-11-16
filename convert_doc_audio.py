@@ -2,11 +2,12 @@
 import os
 from gtts import gTTS, lang # Ler arquivos
 import PyPDF2 # Para arquivo pdf
-from playsound import playsound # Musica
+#from playsound import playsound # Musica - opção para teste
 import pathlib
 import docx2txt # Para arquivo docx
 from PyQt5 import uic, QtWidgets 
 from PyQt5.QtWidgets import QMessageBox
+import vlc  # Musica - Achei a funcionalidade melhor do que o playsound
 
 arquivo = ""
 filename = ""
@@ -81,7 +82,9 @@ def speak(text):
 # Toca o arquivo audio.mp3
 
 def play_audio():
-    playsound(filename)
+    #playsound(filename) # opção para teste
+    p = vlc.MediaPlayer(filename)
+    p.play()
    
 #################################################################
 
